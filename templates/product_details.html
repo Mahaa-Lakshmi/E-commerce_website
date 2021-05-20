@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Order | Presidio Stores</title>
+	<link rel="icon" href="/static/images/logo.png" >
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+<div class="container">
+<div class="navbar">
+	<div class="logo">
+		<img src="/static/images/logo.png" width="125px">
+	</div>
+	<nav>
+		<ul id="MenuItems">
+			<li><a href="{{url_for('homepage')}}">Home</a></li>
+			<li><a href="{{url_for('homepage')}}">Products</a></li>
+			<li><a href="{{url_for('OrderPlaced')}}">My Orders</a></li>
+			<li><a href="#Contact">Contact</a></li>
+		</ul>
+	</nav>
+	<a href="{{url_for('Cartpage')}}"><img src="/static/images/cart.png" width="30px" height="30px"></a>
+	<img src="/static/images/menu.png" class="menu-icon" onclick="menutoggle()" width="30px" >
+</div>
+
+
+
+</div>
+	</div>
+<!---Single product details - Order page------>
+
+<div class="small-container single-product">
+	<div class="row">
+
+		<div class="col-2">
+			<img src="/static/images/product{{rows[0]}}.jpg" width="100%">
+		</div>
+		<div class="col-2">
+
+			<p>Home/{{rows[1]}}</p>
+			<h1>{{rows[1]}}</h1>
+			<h4>{{rows[2]}}</h4>
+			<p>{{rows[3]}}</p>
+			<p>Quantity Available:{{rows[4]}}</p>
+
+			<select>
+				<option>Select size</option>
+				<option>XXL</option>
+				<option>XL</option>
+				<option>L</option>
+				<option>M</option>
+				<option>S</option>
+			</select>
+			<form action="{{ url_for('addToCart', id=rows[0] ) }}" method="post" >
+			<input type="number"  min="1" max="5" name="quantity">
+
+				<button class="btn" type="submit" >{{rows[-1]}}</button>
+			</form>
+			<h3>Product Details</h3><br>
+			<p>Presidio presents to you a new range of stylish and cool new shirts yet which are affordable for everyone. This fashionable and stylish Surhi men shirt makes your look cool and attractive. It is perfect for your summer attire.</p>
+		</div>
+
+	</div>
+	
+</div>
+
+
+
+
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Get to know about us</h3>
+				<ul>
+					<li>About Us</li>
+					<li>Careers</li>
+					<li>Press releases</li>
+					<li>Gift a smile</li>
+				</ul>
+			</div>
+			<div class="footer-col-2">
+				<img src="/static/images/logo-white.png">
+				<p>People will stare. Make it worth their while.</p>
+			</div>
+
+			<div class="footer-col-3">
+				<h3>Follow Us</h3>
+				<ul>
+					<li>Instagram</li>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					
+				</ul>
+			</div>
+			
+		</div>
+		<hr>
+		<p class="copyright">Copyright 2021 - Mahaalakshmi</p>
+	</div>
+</div>
+<!--Js for toggle-->
+<script>
+	var MenuItems=document.getElementById("MenuItems");
+	MenuItems.style.maxHeight="0px";
+
+	function menutoggle()
+	{
+		if(MenuItems.style.maxHeight=="0px")
+		{
+			MenuItems.style.maxHeight="200px";
+		}
+		else
+		{
+			MenuItems.style.maxHeight="0px";
+		}
+	}
+</script>
+
+</body>
+</html>

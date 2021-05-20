@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Presidio Stores</title>
+	<link rel="icon" href="/static/images/logo.png" >
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script></head>
+<body>
+	<div class="header">
+<div class="container">
+<div class="navbar">
+	<div class="logo">
+		<img src="/static/images/logo.png" width="125px">
+	</div>
+	<nav>
+		<ul id="MenuItems">
+			<li><a href="{{url_for('homepage')}}">Home</a></li>
+			<li><a href="{{url_for('homepage')}}">Products</a></li>
+			<li><a href="{{url_for('OrderPlaced')}}">My Orders</a></li>
+			<li><a href="#Contact">Contact</a></li>
+		</ul>
+	</nav>
+	<a href="{{url_for('Cartpage')}}"><img src="/static/images/cart.png" width="30px" height="30px"></a>
+	<img src="/static/images/menu.png" class="menu-icon" onclick="menutoggle()" width="30px" >
+</div>
+
+<div class="row">
+	<div class="col-2"> 
+		<h1>Give Your Life<br>A new style!</h1>
+		<p>
+			Fashion is part of the daily air and it changes all the time, with all the events. You can even see the approaching of a revolution in clothes. You can see and feel everything in clothes. 
+		</p>
+		<a href="#Products" class="btn">Explore Now &#8594;</a>
+	</div>
+	<div class="col-2"> 
+		<img src="/static/images/image1.png">
+	</div>
+</div>
+
+
+</div>
+	</div>
+	
+<!-Products-->
+
+
+
+<!--
+<div class="small-container" id="Products">
+	<h2 class="title">Products</h2>
+	<div class="row">
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product1.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens Round neck Tshirt</h4></a>
+			<p>Rs.500.00</p>
+			
+		</div>
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product2.jpg" class = "img-responsive" width = "100%">
+			<h4>Sea blue Shoe</h4></a>
+			<p>Rs.400.00</p>
+			
+		</div>
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product3.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens Fossil Watch</h4></a>
+			<p>Rs.900.00</p>
+			
+		</div>
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product4.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens Round neck Tshirt blue</h4></a>
+			<p>Rs.470.00</p>
+			
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product5.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens striped Tshirt</h4></a>
+			<p>Rs.399.00</p>
+			
+		</div>
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product6.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens hoodie tshirt</h4></a>
+			<p>Rs.600.00</p>
+			
+		</div>
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product7.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens Boot</h4></a>
+			<p>Rs.700.00</p>
+			
+		</div>
+		<div class="col-sm-3">
+			<a href=""><img src="/static/images/product8.jpg" class = "img-responsive" width = "100%">
+			<h4>Mens Casual Shoe</h4></a>
+			<p>Rs.480.00</p>
+			
+		</div>
+
+	</div>
+</div>
+-->
+
+
+	<div class="small-container" id="Products">
+	<h2 class="title">Products</h2>
+	<div class="row">
+		{% for row in items %}
+		<div class="col-sm-3" id={{row[0]}}>
+			<a href="{{ url_for('view', id=row[0] ) }}"><img src="/static/images/product{{row[0]}}.jpg" class = "img-responsive" width = "100%">
+			<h4>{{row[1]}}</h4></a>
+			<p>{{row[2]}}</p>
+			<p>{{row[3]}}</p>
+
+
+		</div>
+		{% endfor %}
+	</div>
+	</div>
+
+
+
+<!--Brands-->
+<div class="brands">
+	<div class="small-container">
+		<h2 class="title">Brands</h2>
+		<div class="row">
+			<div class="col-5">
+				<img src="/static/images/brand1.png">
+			</div>
+			<div class="col-5">
+				<img src="/static/images/brand2.png">
+			</div>
+			<div class="col-5">
+				<img src="/static/images/brand3.png">
+			</div>
+			<div class="col-5">
+				<img src="/static/images/brand4.png">
+			</div>
+			<div class="col-5">
+				<img src="/static/images/brand5.png">
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+<!--footer-->
+<div class="footer" id="Contact">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Get to know about us</h3>
+				<ul>
+					<li>About Us</li>
+					<li>Careers</li>
+					<li>Press releases</li>
+					<li>Gift a smile</li>
+				</ul>
+			</div>
+			<div class="footer-col-2">
+				<img src="/static/images/logo-white.png">
+				<p>People will stare. Make it worth their while.</p>
+			</div>
+
+			<div class="footer-col-3">
+				<h3>Follow Us</h3>
+				<ul>
+					<li>Instagram</li>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					
+				</ul>
+			</div>
+			
+		</div>
+		<hr>
+		<p class="copyright">Copyright 2021 - Mahaalakshmi</p>
+	</div>
+</div>
+<!--Js for toggle-->
+<script>
+	var MenuItems=document.getElementById("MenuItems");
+	MenuItems.style.maxHeight="0px";
+
+	function menutoggle()
+	{
+		if(MenuItems.style.maxHeight=="0px")
+		{
+			MenuItems.style.maxHeight="200px";
+		}
+		else
+		{
+			MenuItems.style.maxHeight="0px";
+		}
+	}
+
+	function myFunc() {
+  document.getElementById("onloadform").submit();
+};
+
+function LoadProducts(id)
+            {
+
+                document.getElementById('mednamee').innerHTML="<b>Name:</b> "+(document.getElementById(id).children[0]).innerHTML;
+                document.getElementById('medtypee').innerHTML="<b>Type:</b> "+(document.getElementById(id).children[3]).innerHTML;
+                document.getElementById('meddesc').innerHTML="<b>Manufacturer:</b> "+(document.getElementById(id).children[2]).innerHTML;
+                if(document.getElementById('originalradio').checked)
+                                    {
+                          (document.getElementById(id).children[1]).innerHTML='Originality: fake';
+
+                             }
+                else
+                    {
+                        (document.getElementById(id).children[1]).innerHTML='Originality: Original';
+
+                       }
+
+
+
+                }
+
+
+
+
+
+</script>
+
+</body>
+</html>

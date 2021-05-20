@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login | Presidio Stores</title>
+	<link rel="icon" href="/static/images/logo.png" >
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+<div class="container">
+<div class="navbar">
+	<div class="logo">
+		<img src="/static/images/logo.png" width="125px">
+	</div>
+	
+</div>
+
+<div class="row">
+	<div class="col-2"> 
+		<img src="/static/images/image1.png">
+	</div>
+	<div class="col-2"> 
+		<div class="form-container">
+			<div class="form-btn">
+				<span onclick="login()">Login</span>
+				<span onclick="register()">Register</span>
+				<hr id="indicator">
+
+			</div>
+
+			<form id="loginForm" action="{{url_for('login')}}" method="post">
+				<input type="email" name="username" placeholder="Username">
+				<input type="password" name="password" placeholder="Password" >
+				<button type="submit" class="btn">Login</button>
+				<p id="loginstatus">{{row}}</p>
+				<a href="">Forgot password</a>
+			</form>
+
+			<form id="RegForm" action="{{url_for('register')}}" method="post">
+				<input type="text" placeholder="Username" name="name">
+				<input type="email" placeholder="Email" name="email">
+				<input type="password" placeholder="Password" name="password">
+				<p id="regstatus">{{msg}}</p>
+				<button type="submit" class="btn">Register</button>
+							</form>
+			
+		</div>
+	</div>
+	
+</div>
+
+
+</div>
+	</div>
+
+<!--footer-->
+
+	<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Get to know about us</h3>
+				<ul>
+					<li>About Us</li>
+					<li>Careers</li>
+					<li>Press releases</li>
+					<li>Gift a smile</li>
+				</ul>
+			</div>
+			<div class="footer-col-2">
+				<img src="/static/images/logo-white.png">
+				<p>People will stare. Make it worth their while.</p>
+			</div>
+
+			<div class="footer-col-3">
+				<h3>Follow Us</h3>
+				<ul>
+					<li>Instagram</li>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					
+				</ul>
+			</div>
+			
+		</div>
+		<hr>
+		<p class="copyright">Copyright 2021 - Mahaalakshmi</p>
+	</div>
+</div>
+
+<!--js toggle form-->
+<script type="text/javascript">
+	var loginForm=document.getElementById("loginForm");
+	var regForm=document.getElementById("RegForm");
+	var Indicator=document.getElementById("indicator");
+
+	function register()
+	{
+		regForm.style.transform="translateX(0px)";
+		loginForm.style.transform="translateX(0px)";
+		Indicator.style.transform="translateX(100px)";
+	}
+
+	function login()
+	{
+		regForm.style.transform="translateX(300px)";
+		loginForm.style.transform="translateX(300px)";
+		Indicator.style.transform="translateX(0px)";
+	}
+
+</script>
+
+
+
+
+</body></html>

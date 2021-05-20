@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Cart | Presidio Stores</title>
+	<link rel="icon" href="/static/images/logo.png" >
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+<div class="container">
+<div class="navbar">
+	<div class="logo">
+		<img src="/static/images/logo.png" width="125px">
+	</div>
+	<nav>
+		<ul id="MenuItems">
+			<li><a href="{{url_for('homepage')}}">Home</a></li>
+			<li><a href="{{url_for('homepage')}}">Products</a></li>
+			<li><a href="{{url_for('OrderPlaced')}}">My Orders</a></li>
+			<li><a href="#Contact">Contact</a></li>
+		</ul>
+	</nav>
+	<a href="{{url_for('Cartpage')}}"><img src="/static/images/cart.png" width="30px" height="30px"></a>
+	<img src="/static/images/menu.png" class="menu-icon" onclick="menutoggle()" width="30px" >
+</div>
+
+
+
+</div>
+	</div>
+<!-----cart items-------->
+<div class="small-container cart-page">
+	<table>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			
+		</tr>
+		{% for row in rows %}
+		<tr>
+			<td>
+				<div class="cart-info">
+
+					<img src="/static/images/product{{row[0]}}.jpg">
+					<div>
+						<p>{{row[1]}}</p>
+						<small>{{row[2]}}</small><br>
+
+					</div>
+
+					
+				</div>
+			</td>
+			<td>{{quants[loop.index-1]}}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+
+<a href="{{url_for('Checkoutpage')}}" class="btn CheckoutBtn">Check Out</a>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!--footer-->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Get to know about us</h3>
+				<ul>
+					<li>About Us</li>
+					<li>Careers</li>
+					<li>Press releases</li>
+					<li>Gift a smile</li>
+				</ul>
+			</div>
+			<div class="footer-col-2">
+				<img src="/static/images/logo-white.png">
+				<p>People will stare. Make it worth their while.</p>
+			</div>
+
+			<div class="footer-col-3">
+				<h3>Follow Us</h3>
+				<ul>
+					<li>Instagram</li>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					
+				</ul>
+			</div>
+			
+		</div>
+		<hr>
+		<p class="copyright">Copyright 2021 - Mahaalakshmi</p>
+	</div>
+</div>
+<!--Js for toggle-->
+<script>
+	var MenuItems=document.getElementById("MenuItems");
+	MenuItems.style.maxHeight="0px";
+
+	function menutoggle()
+	{
+		if(MenuItems.style.maxHeight=="0px")
+		{
+			MenuItems.style.maxHeight="200px";
+		}
+		else
+		{
+			MenuItems.style.maxHeight="0px";
+		}
+	}
+</script>
+
+</body>
+</html>
